@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      	html, body {
+		margin: 0 0;
+		width: 100%;
+		height: 100%;
+    }
+      body {
+        background-image: url("https://media.tenor.com/Jiiemy3hCrAAAAAM/fish.gif");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+          }
+    </style>
+  </head>
+  <body>
+    <script>
+      window.addEventListener('load', function() {
+		setInterval(function() {
+			let memeImage = [
+				'https://imgs.search.brave.com/kg-GwNP9qz4p6E8DCqQrB12sbdYZPiCTMcAr0QJkbwY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9naWZk/Yi5jb20vaW1hZ2Vz/L2hpZ2gvY29sb3Jm/dWwtY29ja3JvYWNo/LXNwaW5uaW5nLXZt/ZGkzejg3NGI3c3lw/aWguZ2lm.gif',
+				'https://media1.tenor.com/images/0bf8cfcc96cf545126167c37209da753/tenor.gif?itemid=18068417',
+				'https://pa1.narvii.com/7605/1ab7e3469d939f3fed6dc0e711c71160e869f2c1r1-498-396_hq.gif',
+				'https://media.tenor.com/uAeqIESZCi0AAAAC/transparent-spinning.gif',
+				'https://media.tenor.com/aaEMtGfZFbkAAAAC/rat-spinning.gif',
+				'https://th.bing.com/th/id/R.99ad5c42627f7733aaf5af3dc700c7f7?rik=QeWGiaBONU9cLg&pid=ImgRaw&r=0',
+				'https://media.tenor.com/images/a1094e6d3f9a766224c52610922764ba/tenor.gif',
+			]
+			let img = new Image();
+			img.src = memeImage[Math.floor(Math.random() * memeImage.length)];
+			img.style.width = '75px'
+			img.style.position = 'absolute';
+			target = (Math.floor(Math.random() * (document.body.clientWidth - 75)));
+			img.style.left = target + 'px';
+			img.style.top = '0px';
+			document.body.appendChild(img);
+			let yposition = 0;
+			function rain() {
+				yposition += 7;
+				img.style.top =  yposition + 'px';
+				if(yposition < document.body.clientHeight - img.clientHeight) {
+					setTimeout(rain, 1000/60)
+				} else {
+					document.body.removeChild(img);
+				}
+			}
+			setTimeout(rain, 1000/60);
+		}, 100);
+	});
+    </script>
+  </body>
+</html>
