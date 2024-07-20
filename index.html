@@ -21,10 +21,18 @@
   <body>
   <button id = 'button' type="button">BUTTON</button>
     <script>
+	let audio = new Audio("fishMusic.mp3");
+	audio.loop = true;
+	let audioPlaying = false;
       window.addEventListener('load', function() {
 		setInterval(function() {
-			const audioElement = new Audio("fishMusic.mp3");
-			audioElement.play();
+			try {
+				if(!audioPlaying) {
+					audio.play();
+				}
+			} catch(e) {
+				console.warn(e);
+			}
 			let memeImage = [
 				'https://imgs.search.brave.com/kg-GwNP9qz4p6E8DCqQrB12sbdYZPiCTMcAr0QJkbwY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9naWZk/Yi5jb20vaW1hZ2Vz/L2hpZ2gvY29sb3Jm/dWwtY29ja3JvYWNo/LXNwaW5uaW5nLXZt/ZGkzejg3NGI3c3lw/aWguZ2lm.gif',
 				'https://media1.tenor.com/images/0bf8cfcc96cf545126167c37209da753/tenor.gif?itemid=18068417',
@@ -157,7 +165,7 @@
   ]
 	async function handleClick() {
 		var why = Math.floor(Math.random() * bruh.length);
-		location.replace(bruh[why]);
+		window.open(bruh[why], '_blank').focus();
 	}
 	document.getElementById('button').addEventListener('click', handleClick);
     </script>
