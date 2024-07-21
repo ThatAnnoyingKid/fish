@@ -22,6 +22,7 @@
   <button id = 'button' type="button">BUTTON</button>
     <script>
 	let audio = new Audio("fishMusic.mp3");
+	let goofed = new Audio("fishSound.mp3");
 	audio.loop = true;
 	let audioPlaying = false;
       window.addEventListener('load', function() {
@@ -164,6 +165,7 @@
     'https://toms.toys',
   ]
 	async function handleClick() {
+		goofed.play();
 		var why = Math.floor(Math.random() * bruh.length);
 		window.open(bruh[why], '_blank').focus();
 	}
